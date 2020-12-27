@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <view class="usermotto">
+    <audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" bindplay="audioPlay"
+      controls loop></audio>
+    <textarea class='the_prw_in' bindinput='bindblur' cursor-spacing="130" placeholder="说点什么吧。。" maxlength="76">
+      </textarea>
+    <button type="primary" bindtap="cmtUpload">发表</button>
+    <view><text class="state">{{state}}</text></view>
+
+    <view>评论内容：</view>
+          <block wx:for="{{pl_list}}" wx:key="index">
+            <view class='the_msg' wx:if='{{item.body!=null}}'>
+              <view class='msg_right'>
+                <view class='msg_right_text'>
+                  <text>{{item.author}}: </text>
+                  <text>{{item.body}}</text>
+                </view>
+                <text class="datestr">{{item.date}}</text>
+                <text>\n</text>
+                <view class='gap'>
+                </view>
+              </view>
+            </view>
+          </block>
+
+    <!-- <button type="primary" bindtap="commentTest">获取测试评论</button> -->
+  </view>
+</view>

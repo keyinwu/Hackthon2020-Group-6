@@ -1,0 +1,418 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:w="urn:schemas-microsoft-com:office:word"
+    xmlns="http://www.w3.org/TR/REC-html40">
+    <head><meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <style type="text/css">
+        table  
+        {  
+            border-collapse: collapse;
+            border: none;  
+            width: 100%;  
+        }  
+        td,tr  
+        {  
+            border: solid #CCC 1px;
+            padding:3px;
+            font-size:9pt;
+        } 
+        .codestyle{
+            word-break: break-all;
+            mso-highlight:rgb(252, 252, 252);
+            padding-left: 5px; background-color: rgb(252, 252, 252); border: 1px solid rgb(225, 225, 232);
+        }
+        img {
+            width:100;
+        }
+    </style>
+    <meta name=ProgId content=Word.Document>
+    <meta name=Generator content="Microsoft Word 11">
+    <meta name=Originator content="Microsoft Word 11">
+    <xml><w:WordDocument><w:View>Print</w:View></xml></head>
+    <body><h1>1、用户评论上传</h1><div style="margin-left:20px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:5001/set_comment</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "userinfo": {
+    "nickName": "一剑东来六合清",
+    "gender": 1,
+    "language": "zh_CN",
+    "city": "Nantong",
+    "province": "Jiangsu",
+    "country": "China",
+    "avatarUrl": "https://thirdwx.qlogo.cn/mmopen/vi_32/ZWjzEWttKnSib0KS6ghib0xPtlLiaOHRJZZ3HYtlvKNh6DbdVSXMxnpeUcgkHiavNmUSV57u2RqmJlvxeicEQSnJ2dA/132"
+  },
+  "body": "233",
+  "file_name": "bixi_sound.m4a"
+}
+</code></pre></table>
+<h5>json字段说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">字段名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">userinfo</td>
+<td style="text-align: left;">是</td>
+<td>object</td>
+<td>用户信息->从微信获得</td>
+</tr>
+<tr>
+<td style="text-align: left;">nickName</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td style="text-align: left;">gender</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>性别</td>
+</tr>
+<tr>
+<td style="text-align: left;">language</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>语种</td>
+</tr>
+<tr>
+<td style="text-align: left;">city</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>城市</td>
+</tr>
+<tr>
+<td style="text-align: left;">province</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>省份</td>
+</tr>
+<tr>
+<td style="text-align: left;">country</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>国家</td>
+</tr>
+<tr>
+<td style="text-align: left;">avatarUrl</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>头像链接</td>
+</tr>
+<tr>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>评论内容</td>
+</tr>
+<tr>
+<td style="text-align: left;">file_name</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>关联文件</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "code": 200,
+  "msg": "success"
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">code</td>
+<td style="text-align: left;">string</td>
+<td>状态码</td>
+</tr>
+<tr>
+<td style="text-align: left;">msg</td>
+<td style="text-align: left;">string</td>
+<td>状态信息</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div><h1>2、获取基础信息</h1><div style="margin-left:20px;"><h5>简要描述</h5>
+<ul>
+<li>包括基础文件信息和文件相关的评论信息</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:5001/get_basic_info</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "file_name": "bixi_sound.m4a"
+}
+</code></pre></table>
+<h5>json字段说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">字段名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">file_name</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>文件名</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "comments": [
+    {
+      "author": "一剑东来六合清",
+      "body": "233",
+      "date": "Sun, 27 Dec 2020 00:00:00 GMT"
+    },
+    {
+      "author": "一剑东来六合清",
+      "body": "233",
+      "date": "Sun, 27 Dec 2020 00:00:00 GMT"
+    },
+    {
+      "author": "一剑东来六合清",
+      "body": "233",
+      "date": "Sun, 27 Dec 2020 00:00:00 GMT"
+    },
+    {
+      "author": "一剑东来六合清",
+      "body": "233",
+      "date": "Sun, 27 Dec 2020 00:00:00 GMT"
+    }
+  ],
+  "file": {
+    "author": "一剑东来六合清",
+    "filename": "bixi_sound.m4a"
+  }
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">comments</td>
+<td style="text-align: left;">array</td>
+<td>评论列表</td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">string</td>
+<td>评论者</td>
+</tr>
+<tr>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">string</td>
+<td>评论内容</td>
+</tr>
+<tr>
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">string</td>
+<td>评论日期</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div><h1>3、获取评论信息</h1><div style="margin-left:20px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:5001/get_comment</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "file_name": "bixi_sound.m4a"
+}
+</code></pre></table>
+<h5>json字段说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">字段名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">file_name</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>文件名</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "comments": [
+    {
+      "author": "一剑东来六合清",
+      "body": "233",
+      "date": "Sun, 27 Dec 2020 00:00:00 GMT"
+    },
+    {
+      "author": "一剑东来六合清",
+      "body": "233",
+      "date": "Sun, 27 Dec 2020 00:00:00 GMT"
+    },
+    {
+      "author": "一剑东来六合清",
+      "body": "233",
+      "date": "Sun, 27 Dec 2020 00:00:00 GMT"
+    },
+    {
+      "author": "一剑东来六合清",
+      "body": "233",
+      "date": "Sun, 27 Dec 2020 00:00:00 GMT"
+    }
+  ]
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">comments</td>
+<td style="text-align: left;">array</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">author</td>
+<td style="text-align: left;">string</td>
+<td>评论者</td>
+</tr>
+<tr>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">string</td>
+<td>评论内容</td>
+</tr>
+<tr>
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">string</td>
+<td>评论日期</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div><h1>4、上传文件</h1><div style="margin-left:20px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:5001/upload_file</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">file</td>
+<td style="text-align: left;">是</td>
+<td>file</td>
+<td>文件</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "code": "200",
+  "msg": "success"
+}
+</code></pre></table>
+<h5>返回参数说明</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">code</td>
+<td style="text-align: left;">string</td>
+<td>状态码</td>
+</tr>
+<tr>
+<td style="text-align: left;">msg</td>
+<td style="text-align: left;">string</td>
+<td>状态信息</td>
+</tr>
+</tbody>
+</table>
+<h5>备注</h5></div><h1>5、文件获取</h1><div style="margin-left:20px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:5001/static/files/bixi/bixi_sound.m4a</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>文件流
+</code></pre></table>
+<h5>备注</h5></div></body></html>
